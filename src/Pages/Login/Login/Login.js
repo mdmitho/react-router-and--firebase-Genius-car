@@ -1,5 +1,6 @@
 import React, { useRef } from "react";
 import { Button, Form } from "react-bootstrap";
+import { Link } from "react-router-dom";
 import { Navigate, useNavigate } from "react-router-dom";
 
 const Login = () =>{ 
@@ -16,12 +17,15 @@ const handleSubmit = event =>{
 const navigateRegister = (event) =>{
     Navigate('/register')
 }
+const handleRegister =(event)=>{
+  event.preventDefault()
+}
 
   return (
     <div className="container w-50 mx-auto">
       <h1 className="text-primary text-center">Please login</h1>
       <div className="mt-3">
-        <Form onSubmit={handleSubmit}>
+        <Form onSubmit={handleRegister}>
           <Form.Group className="mb-3" controlId="formBasicEmail">
             <Form.Label>Email address</Form.Label>
             <Form.Control ref={emailRef} type="email" placeholder="Enter email" required />
@@ -41,7 +45,7 @@ const navigateRegister = (event) =>{
             Submit
           </Button>
         </Form>
-        <p>New to Genius Car ? <span className="text-danger" onClick={navigateRegister}>Please Register</span></p>
+        <p>New to Genius Car ? <Link to="/register" className="text-danger pe-auto text-decoration-none" onClick={navigateRegister}>Please Register</Link></p>
       </div>
     </div>
   );

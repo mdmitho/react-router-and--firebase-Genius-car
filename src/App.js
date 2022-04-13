@@ -9,6 +9,7 @@ import ServiceDetail from './Pages/ServiceDetail/ServiceDetail';
 import Experts from './Pages/Home/Experts/Experts';
 import NotFound from './Pages/Shared/NotFound/NotFound';
 import Login from './Pages/Login/Login/Login';
+import Register from './Pages/Login/Register/Register';
 
 
 function App() {
@@ -22,6 +23,7 @@ function App() {
       <Route path='/experts' element={<Experts></Experts>}></Route>
       <Route path='/about' element={<About></About>}></Route>
       <Route path='/login' element={<Login></Login>}></Route>
+      <Route path='/register' element={<Register></Register>}></Route>
       <Route path='*' element={<NotFound></NotFound>}></Route>
     </Routes>
     <Footer></Footer>
