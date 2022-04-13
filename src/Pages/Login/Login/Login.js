@@ -1,7 +1,7 @@
 import React, { useRef } from "react";
 import { Button, Form } from "react-bootstrap";
 import { useSignInWithEmailAndPassword } from "react-firebase-hooks/auth";
-import { Link } from "react-router-dom";
+import { Link, useLocation } from "react-router-dom";
 import { Navigate, useNavigate } from "react-router-dom";
 import auth from "../../../firebase.init";
 
@@ -9,6 +9,8 @@ const Login = () =>{
     const emailRef= useRef('') 
     const passwordRef = useRef('')
     const navigate = useNavigate()
+    const location =useLocation()
+    let from = location.state?.from?.pathname || "/"
     const [
       signInWithEmailAndPassword,
       user,
@@ -17,7 +19,7 @@ const Login = () =>{
     ] = useSignInWithEmailAndPassword(auth);
 
 if(user){
-  navigate('/home')
+  navigate(from, {replace:true})
 }
 
 const handleSubmit = event =>{
