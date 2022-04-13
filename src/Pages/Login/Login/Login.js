@@ -17,15 +17,13 @@ const handleSubmit = event =>{
 const navigateRegister = (event) =>{
     Navigate('/register')
 }
-const handleRegister =(event)=>{
-  event.preventDefault()
-}
+
 
   return (
     <div className="container w-50 mx-auto">
       <h1 className="text-primary text-center">Please login</h1>
       <div className="mt-3">
-        <Form onSubmit={handleRegister}>
+        <Form onSubmit={handleSubmit}>
           <Form.Group className="mb-3" controlId="formBasicEmail">
             <Form.Label>Email address</Form.Label>
             <Form.Control ref={emailRef} type="email" placeholder="Enter email" required />
